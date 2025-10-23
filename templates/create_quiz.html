@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Create a Quiz</h2>
+<form method="POST">
+  <input name="title" class="form-control mb-2" placeholder="Quiz Title" required>
+  <textarea name="description" class="form-control mb-3" placeholder="Description"></textarea>
+
+  <div id="questions">
+    <div class="question-block mb-3 border p-3 rounded">
+      <input name="question_text" class="form-control mb-2" placeholder="Question" required>
+      <input name="option1" class="form-control mb-1" placeholder="Option 1" required>
+      <input name="option2" class="form-control mb-1" placeholder="Option 2" required>
+      <input name="option3" class="form-control mb-1" placeholder="Option 3" required>
+      <input name="option4" class="form-control mb-1" placeholder="Option 4" required>
+      <input name="correct_answer" class="form-control mb-1" placeholder="Correct Answer" required>
+    </div>
+  </div>
+  <button type="button" class="btn btn-secondary" onclick="addQuestion()">+ Add Question</button>
+  <button type="submit" class="btn btn-primary mt-3">Create Quiz</button>
+</form>
+
+<script>
+function addQuestion() {
+  const q = document.querySelector('.question-block').cloneNode(true);
+  document.getElementById('questions').appendChild(q);
+}
+</script>
+{% endblock %}

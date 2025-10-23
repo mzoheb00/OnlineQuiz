@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Available Quizzes</h2>
+<ul class="list-group">
+  {% for quiz in quizzes %}
+    <li class="list-group-item">
+      <a href="{{ url_for('take_quiz', quiz_id=quiz.id) }}">{{ quiz.title }}</a> 
+      <small class="text-muted">by User {{ quiz.created_by }}</small>
+    </li>
+  {% else %}
+    <p>No quizzes yet.</p>
+  {% endfor %}
+</ul>
+{% endblock %}
